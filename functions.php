@@ -25,6 +25,9 @@ function scripts_theme(){
 function theme_register_nav_menu(){
    register_nav_menu('primary', 'Primary Menu');
    register_nav_menu('footer', 'Footer Menu');
+   add_theme_support('title-tag');
+   add_theme_support('post-thumbnails', array('post') );
+   add_image_size('post_thumb', 1300, 500, true);
 }
 
 function register_my_widgets(){

@@ -25,113 +25,23 @@
 
          <div id="primary" class="eight columns">
 
-            <article class="post">
-
-               <div class="entry-header cf">
-
-                  <h1><a href="single.html" title="">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>
-
-                  <p class="post-meta">
-
-                     <time class="date" datetime="2014-01-14T11:24">Jan 14, 2014</time>
-                     /
-                     <span class="categories">
-                     <a href="#">Design</a> /
-                     <a href="#">User Inferface</a> /
-                     <a href="#">Web Design</a>
-                     </span>
-
-                  </p>
-
-               </div>
-
+         <?php if(have_posts()) { while (have_posts()) {the_post(); ?>
+            <!-- СТАТЬИ!!! -->
+            <article>
                <div class="post-thumb">
-                  <a href="single.html" title=""><img src="images/post-image/post-image-1300x500-01.jpg" alt="post-image" title="post-image"></a>
+                  <a href="<?php the_permalink() ?>" title=""><?php the_post_thumbnail ('post_thumb')?></a>
                </div>
+               <h1><a href="<?php the_permalink() ?>"></a><?php the_title(); ?></h1>
+               <p class="post-meta">
+                  <time class="date" datetime="2020-02-17T14:14"><?php the_time('F jS, Y') ?></time>
 
-               <div class="post-content">
+               </p>
+               <?php the_excerpt(); ?>
+            </article>
 
-                  <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-                  nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                  cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-                  ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>
-
-               </div>
-
-            </article> <!-- post end -->
-
-            <article class="post">
-
-               <div class="entry-header cf">
-
-                  <h1><a href="single.html" title="">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>
-
-                  <p class="post-meta">
-
-                     <time class="date" datetime="2014-01-14T11:24">Jan 14, 2013</time>
-                     /
-                     <span class="categories">
-                     <a href="#">Design</a> /
-                     <a href="#">User Inferface</a> /
-                     <a href="#">Web Design</a>
-                     </span>
-
-                  </p>
-
-               </div>
-
-               <div class="post-thumb">
-                  <a href="single.html" title=""><img src="images/post-image/post-image-1300x500-02.jpg" alt="post-image" title="post-image"></a>
-               </div>
-
-               <div class="post-content">
-
-                  <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-                  nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                  cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-                  ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>
-
-               </div>
-
-            </article> <!-- post end -->
-
-            <article class="post">
-
-               <div class="entry-header cf">
-
-                  <h1><a href="single.html" title="">Proin gravida nibh vel velit auctor aliquet Aenean sollicitudin auctor.</a></h1>
-
-                  <p class="post-meta">
-
-                     <time class="date" datetime="2014-01-14T11:24">Jan 14, 2014</time>
-                     /
-                     <span class="categories">
-                     <a href="#">Design</a> /
-                     <a href="#">User Inferface</a> /
-                     <a href="#">Web Design</a>
-                     </span>
-
-                  </p>
-
-               </div>
-
-               <div class="post-thumb">
-                  <a href="single.html" title=""><img src="images/post-image/post-image-1300x500-03.jpg" alt="post-image" title="post-image"></a>
-               </div>
-
-               <div class="post-content">
-
-                  <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
-                  nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
-                  cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
-                  ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>
-
-               </div>
-
-            </article> <!-- post end -->
-
-            <!-- Pagination -->
-            <nav class="col full pagination">
+            <?php} ?>
+            <?php the_posts_pagination(); ?>
+            <!-- <nav class="col full pagination">
   			      <ul>
                   <li><span class="page-numbers prev inactive">Prev</span></li>
   				      <li><span class="page-numbers current">1</span></li>
@@ -145,7 +55,12 @@
                   <li><a href="#" class="page-numbers">9</a></li>
   				      <li><a href="#" class="page-numbers next">Next</a></li>
   			      </ul>
-  		      </nav>
+              </nav> -->
+              
+         <?php } ?> 
+
+
+            
 
          </div> <!-- Primary End-->
 
