@@ -25,23 +25,42 @@
 
          <div id="primary" class="eight columns">
 
-         <?php if(have_posts()) { while (have_posts()) {the_post(); ?>
-            <!-- СТАТЬИ!!! -->
-            <article>
-               <div class="post-thumb">
-                  <a href="<?php the_permalink() ?>" title=""><?php the_post_thumbnail ('post_thumb')?></a>
+            <article class="post">
+
+               <div class="entry-header cf">
+
+                  <h1><a href="<?php the_permalink() ?>" title=""><?php the_title(); ?></a></h1>
+
+                  <p class="post-meta">
+
+                     <time class="date" datetime="2014-01-14T11:24"><?php the_time('F jS, Y') ?></time>
+                     /
+                     <span class="categories">
+                        <?php the_category($separator = '/', '', '') ?>
+                     </span>
+
+                  </p>
+
                </div>
-               <h1><a href="<?php the_permalink() ?>"></a><?php the_title(); ?></h1>
-               <p class="post-meta">
-                  <time class="date" datetime="2020-02-17T14:14"><?php the_time('F jS, Y') ?></time>
 
-               </p>
-               <?php the_excerpt(); ?>
-            </article>
+               <div class="post-thumb">
+                  <a href="single.html" title=""><?php the_post_thumbnail('post-thumb') ?></a>
+               </div>
 
-            <?php} ?>
-            <?php the_posts_pagination(); ?>
-            <!-- <nav class="col full pagination">
+               <div class="post-content">
+
+                  <p>Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor,
+                  nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate
+                  cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a
+                  ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. </p>
+
+               </div>
+
+            </article> <!-- post end -->
+
+
+            <!-- Pagination -->
+            <nav class="col full pagination">
   			      <ul>
                   <li><span class="page-numbers prev inactive">Prev</span></li>
   				      <li><span class="page-numbers current">1</span></li>
@@ -55,12 +74,7 @@
                   <li><a href="#" class="page-numbers">9</a></li>
   				      <li><a href="#" class="page-numbers next">Next</a></li>
   			      </ul>
-              </nav> -->
-              
-         <?php } ?> 
-
-
-            
+  		      </nav>
 
          </div> <!-- Primary End-->
 
