@@ -5,6 +5,19 @@ add_action('wp_footer', 'scripts_theme');
 add_action('after_setup_theme', 'theme_register_nav_menu');
 add_action('widgets_init', 'register_my_widgets');
 
+add_filter( 'document_title_separator', 'my_sep' );
+function my_sep( $sep ){
+   
+   $sep = ' | ';
+	return $sep;
+}
+
+add_filter( 'the_content', 'test_content' );
+function test_content($content) {
+   $content .= 'Тестовый фильтр';
+   return $content;
+}
+
 function style_theme(){
    wp_enqueue_style('style', get_stylesheet_uri());
    wp_enqueue_style( 'default', get_template_directory_uri() . '/assets/css/default.css');
@@ -42,3 +55,5 @@ function register_my_widgets(){
 		'after_title'   => "</h5>\n",
 	) );
 }
+
+
